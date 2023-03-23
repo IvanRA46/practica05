@@ -11,11 +11,21 @@ package practica05ramirezvivancoivan;
 public class Principal
         extends javax.swing.JFrame {
 
+    private int tam = 20;
+    private Usuario[] aUsuarios = new Usuario[tam];
+    
     /**
      * Creates new form Principal
      */
     public Principal() {
         initComponents();
+        lblMen.setText("Ingresa al sistema");
+        aUsuarios[0] = new Usuario("Ivan", "ivan4658");
+        aUsuarios[1] = new Usuario("Andrea", "andrea4658");
+        aUsuarios[2] = new Usuario("Chuy","chuy4658");
+        aUsuarios[3] = new Usuario("Charles", "charles4658");
+        aUsuarios[4] = new Usuario("Ana", "ana4658");
+        aUsuarios[5] = new Usuario("Alex", "alex4658");
     }
 
     /**
@@ -68,6 +78,10 @@ public class Principal
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnCancelar)
+                .addGap(116, 116, 116))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -86,13 +100,9 @@ public class Principal
                             .addComponent(txtUser)
                             .addComponent(txtPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(156, 156, 156)
-                        .addComponent(lblMen, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(106, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnCancelar)
-                .addGap(116, 116, 116))
+                        .addGap(24, 24, 24)
+                        .addComponent(lblMen, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(67, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(72, 72, 72)
@@ -132,20 +142,23 @@ public class Principal
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnIngresar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresar1ActionPerformed
+        int i = 0;
         String usuario = txtUser.getText();
         String password = txtPassword.getText();
-        
-        if(usuario.equals("Ivan")&&password.equals("ivan4658")){
-            Formulario fr = new Formulario("Ana");
-        Principal pr = new Principal();
-        pr.setVisible(false);
-        fr.setVisible(true);
-        this.setVisible(false);
-        }else{
-            
-                    
+        boolean valido = false;
+        for(i=0;i<tam;i++){
+            if(aUsuarios[i].getUsuario().equals(usuario)&&aUsuarios[i].getContra().equals(password)){
+            lblMen.setText("Contraseña correcta");
+            Formulario fr = new Formulario(usuario, this);
+            fr.setVisible(true);
+            this.setVisible(false);
+            valido = true;
+            break;
+                } 
+            }
+        if(!valido){
+            lblMen.setText("Contraseña incorrecta");       
         }
-       
     }//GEN-LAST:event_btnIngresar1ActionPerformed
 
     /**

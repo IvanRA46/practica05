@@ -12,21 +12,13 @@ package practica05ramirezvivancoivan;
 public class Formulario
         extends javax.swing.JFrame {
     
-    private int tam = 20;
-    private int contObj;
-    Beca aBecas[] = new Beca[tam];
+    
     /**
      * Creates new form Formulario
      */
-    public Formulario(String usr) {
+    public Formulario(String usuario, Principal pr ) {
         initComponents();
-        txtUser.setText(usr);
-        aBecas[0] = new Beca("Ivan", "Promedio 9.8", true, false, true,1 );
-        aBecas[1] = new Beca("Juan", "Promedio 9.7", true, true, true, 2);
-        for(int i=4; i<tam; i++)
-            aBecas[i] = new Beca();
-            contObj=4;
-            lblMensaje.setVisible(false);
+       
         
     }
 
@@ -143,19 +135,19 @@ public class Formulario
                                             .addComponent(lblComentarios, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(18, 18, Short.MAX_VALUE)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(cbtnBibliografia, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 29, Short.MAX_VALUE)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(lblUso, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(cbtnMaterial, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(cbtnTransporte, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(cbtnBibliografia, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
+                                            .addComponent(cbtnMaterial, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(cbtnTransporte, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(52, 52, 52)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(btnSalir)
                                             .addComponent(btnAceptar))
                                         .addGap(0, 0, Short.MAX_VALUE)))))))
-                .addGap(61, 61, 61))
+                .addGap(40, 40, 40))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(lblMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -211,21 +203,9 @@ public class Formulario
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
-        if(!txtUser.getText().isEmpty()){
-            aBecas[contObj].setNombre(txtUser.getText());
-            
-            if(rbtnEstatal.isSelected()){
-                lblComentarios.setText("Beca: Federal");
-            } else if (rbtnFederal.isSelected()){
-                lblComentarios.setText("Beca: Estatal");
-            }else if (rbtnInstitucional.isSelected()){
-                lblComentarios.setText("Beca: Insitutcional");
-            }else{
-                lblComentarios.setText("Ninguna beca seleccionada");
-            }
-            
+        
           
-        }
+        
     }//GEN-LAST:event_btnAceptarActionPerformed
 
     /**
